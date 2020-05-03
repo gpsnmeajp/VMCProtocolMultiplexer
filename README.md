@@ -3,7 +3,6 @@
 複数の入出力を持ち、配送先を自由に設定することができる。
 
 **[ダウンロード](https://github.com/gpsnmeajp/VMCProtocolMultiplexer/releases)**
-<img src="https://github.com/gpsnmeajp/VMCProtocolMultiplexer/blob/master/README-image/logo.png?raw=true"></img>
 
 [VMC Protocol対応](https://sh-akira.github.io/VirtualMotionCaptureProtocol/)  
 <img src="https://github.com/gpsnmeajp/VMCProtocolMultiplexer/blob/master/README-image/vmpc_logo_128x128.png?raw=true"></img>
@@ -16,4 +15,6 @@
 - input.jsonで入力名、入力ポートを定義します。
 - output.jsonで出力名、出力先IPアドレス、出力ポートを定義します。
 - filter.jsonで入力名と出力名の対応関係を定義します。
-- 起動すると中継を開始します。
+- 起動すると中継を開始します。動作中はパケット数が表示されます。
+
+<img src="https://github.com/gpsnmeajp/VMCProtocolMultiplexer/blob/master/README-image/image.png?raw=true"></img>
