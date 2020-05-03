@@ -20,3 +20,5 @@
 - 起動すると中継を開始します。動作中はパケット数が表示されます。
 
 <img src="https://github.com/gpsnmeajp/VMCProtocolMultiplexer/blob/master/README-image/image.png?raw=true"></img>
+
+# [お問合せ先(Discordサーバー)](https://discord.gg/nGapSR7)
