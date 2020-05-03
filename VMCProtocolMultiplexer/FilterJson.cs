@@ -8,5 +8,7 @@ namespace VMCProtocolMultiplexer
 {
     class FilterJson
     {
+        public string InputName { get; set; }
+        public string OutputName { get; set; }
     }
 }

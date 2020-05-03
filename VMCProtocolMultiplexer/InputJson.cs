@@ -8,5 +8,7 @@ namespace VMCProtocolMultiplexer
 {
     class InputJson
     {
+        public string Name { get; set; }
+        public int Port { get; set; }
     }
 }
