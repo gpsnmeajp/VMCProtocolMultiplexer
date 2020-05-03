@@ -1,0 +1,18 @@
+[
+	{
+		"InputName": "Input1",
+		"OutputName": "Output1"
+	},
+	{
+		"InputName": "Input2",
+		"OutputName": "Output2"
+	},
+	{
+		"InputName": "Input1",
+		"OutputName": "Output3"
+	},
+	{
+		"InputName": "Input2",
+		"OutputName": "Output3"
+	},
+]

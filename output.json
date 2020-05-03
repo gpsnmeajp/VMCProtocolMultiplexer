@@ -1,0 +1,17 @@
+[
+	{
+		"Name": "Output1",
+		"Address": "127.0.0.1",
+		"Port": 2001
+	},
+	{
+		"Name": "Output2",
+		"Address": "127.0.0.1",
+		"Port": 2002
+	},
+	{
+		"Name": "Output3",
+		"Address": "127.0.0.1",
+		"Port": 2003
+	},
+]

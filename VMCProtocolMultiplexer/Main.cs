@@ -23,6 +23,7 @@ SOFTWARE.
 */
 using System;
 using System.IO;
+using System.Threading;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -50,14 +51,51 @@ namespace VMCProtocolMultiplexer
 
         public void Process()
         {
-            Console.WriteLine("### VMCProtocolMultiplexer v0.00");
+            Console.WriteLine("### VMCProtocolMultiplexer v0.01");
             //---------サーバー開始------------
             try
             {
                 StartServer();
+                Console.WriteLine("### Starting...");
+                Thread.Sleep(3000);
 
-                Console.WriteLine("Press ENTER key to stop server");
-                Console.ReadLine();
+                Console.Clear();
+                bool exit = false;
+                while (!exit) {
+                    Console.SetCursorPosition(0, 0);
+                    Console.WriteLine("### VMCProtocolMultiplexer v0.00");
+                    Console.WriteLine("");
+                    Console.WriteLine("### Input Table");
+
+                    foreach (var i in inputOSC)
+                    {
+                        Console.WriteLine("INPUT: " + "Port " + i.Value.Port + " -> " + i.Value.Name + " "+ i.Value.PacketCounter + " Packets");
+                    }
+                    Console.WriteLine("");
+                    Console.WriteLine("### Output Table");
+
+                    foreach (var o in outputOSC)
+                    {
+                        Console.WriteLine("OUTPUT: " + o.Key + " -> " + o.Value.Address + ":" + o.Value.Port + " " + o.Value.PacketCounter + " Packets");
+                    }
+                    Console.WriteLine("");
+                    Console.WriteLine("### Routing Table");
+
+                    foreach (var r in routing)
+                    {
+                        foreach (var rd in r.Value) {
+                            Console.WriteLine("ROUTE: " + r.Key + " -> " + rd);
+                        }
+                    }
+
+                    Console.WriteLine("Press ENTER key to stop server");
+                    if (Console.KeyAvailable) {
+                        if (Console.ReadKey(true).Key == ConsoleKey.Enter) {
+                            exit = true;
+                        }
+                    }
+                    Thread.Sleep(500);
+                }
 
             }
             catch (Exception e)

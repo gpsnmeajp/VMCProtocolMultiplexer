@@ -1,0 +1,10 @@
+[
+	{
+		"Name": "Input1",
+		"Port": 1001
+	},
+	{
+		"Name": "Input2",
+		"Port": 1002
+	}
+]

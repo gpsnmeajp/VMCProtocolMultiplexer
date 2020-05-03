@@ -33,11 +33,18 @@ namespace VMCProtocolMultiplexer
 {
     class OutputOSC : IDisposable
     {
-        OscSender oscSender;        
+        OscSender oscSender;
+        public long PacketCounter = 0;
+        public string Address;
+        public int Port;
+
         public OutputOSC(string adr,int port)
         {
-            IPAddress ip = IPAddress.Parse(adr);
-            oscSender = new OscSender(ip, port);
+            this.Address = adr;
+            this.Port = port;
+
+            IPAddress ip = IPAddress.Parse(this.Address);
+            oscSender = new OscSender(ip, 0,this.Port);
             oscSender.Connect();
             //例外は上位に打ち上げる
         }
@@ -45,6 +52,7 @@ namespace VMCProtocolMultiplexer
         //受信待受停止
         public void Send(OscPacket packet)
         {
+            PacketCounter++;
             oscSender.Send(packet);
         }
         public void Dispose()

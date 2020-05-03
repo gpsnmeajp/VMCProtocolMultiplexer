@@ -37,10 +37,13 @@ namespace VMCProtocolMultiplexer
         public Action<string,OscBundle> OnBundle = null;
         public Action<string, OscMessage> OnMessage = null;
 
+        public long PacketCounter = 0;
+
         //受信処理用
         OscReceiver oscReceiver = null;
         Thread thread = null;
-        string name = null;
+        public string Name = null;
+        public int Port;
 
         //受信待受開始
         public InputOSC(string name,int port, Action<string, OscBundle> OnBundle, Action<string, OscMessage> OnMessage)
@@ -48,12 +51,13 @@ namespace VMCProtocolMultiplexer
             if (name == null) {
                 throw new ArgumentNullException();
             }
-            this.name = name;
+            this.Name = name;
+            this.Port = port;
             this.OnBundle = OnBundle;
             this.OnMessage = OnMessage;
 
             //受信待受
-            oscReceiver = new OscReceiver(port);
+            oscReceiver = new OscReceiver(this.Port);
             oscReceiver.Connect();
 
             //受信処理スレッド
@@ -111,13 +115,14 @@ namespace VMCProtocolMultiplexer
         //パケットを処理して、bundleとMessageに振り分け
         private void ProcessPacket(OscPacket packet)
         {
+            PacketCounter++;
             switch (packet)
             {
                 //bundleを受信した
                 case OscBundle bundle:
                     try
                     {
-                        OnBundle?.Invoke(name,bundle);
+                        OnBundle?.Invoke(Name,bundle);
                     }
                     catch (Exception e)
                     {
@@ -128,7 +133,7 @@ namespace VMCProtocolMultiplexer
                 case OscMessage msg:
                     try
                     {
-                        OnMessage?.Invoke(name,msg);
+                        OnMessage?.Invoke(Name,msg);
                     }
                     catch (Exception e)
                     {
