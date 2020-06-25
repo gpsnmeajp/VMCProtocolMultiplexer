@@ -2,7 +2,8 @@
 [VMCProtocol](https://sh-akira.github.io/VirtualMotionCaptureProtocol/)を分配するソフトウェア。  
 複数の入出力を持ち、配送先を自由に設定することができる。
 
-なお現状、VMCProtocolに基づいた処理は特にしていないので、単にOSC信号を中継・分配するのに使えます。
+なお現状、VMCProtocolに基づいた処理は特にしていないので、単にOSC信号を中継・分配するのに使えます。  
+**本ソフトウェアは、自分で問題を解決できる人向け(上級者向け)です。**  
 
 **[ダウンロード](https://github.com/gpsnmeajp/VMCProtocolMultiplexer/releases)**
 
