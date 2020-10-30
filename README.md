@@ -1,4 +1,10 @@
 # VMCProtocolMultiplexer
+
+# ----------------------------------
+# このソフトウェアは現在非推奨です
+# シンプルな代替品である[VMCProtocolReflector](https://github.com/gpsnmeajp/VMCProtocolReflector) をお使いください
+# ----------------------------------
+
 [VMCProtocol](https://sh-akira.github.io/VirtualMotionCaptureProtocol/)を分配するソフトウェア。  
 複数の入出力を持ち、配送先を自由に設定することができる。
 
